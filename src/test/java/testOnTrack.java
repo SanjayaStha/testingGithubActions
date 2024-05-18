@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import com.example.OnTrack;
 
-public class testOnTrack {
+public class TestOnTrack {
     
     @Test
     public void testTrueAddProjectName(){
@@ -18,4 +18,12 @@ public class testOnTrack {
         onTrack.createProject("newProject");
         Assertions.assertTrue(onTrack.findProject("newProject0"));
     }
+
+    @Test
+    public void testFalseAddProjectName(){
+        OnTrack onTrack = new OnTrack();
+        onTrack.createProject("newProject");
+        Assertions.assertTrue(onTrack.findProject("newProject2"));
+    }
 }
+
