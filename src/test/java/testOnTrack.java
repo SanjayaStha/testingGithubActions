@@ -20,7 +20,7 @@ public class TestOnTrack {
     }
 
     @Test
-    public void testFalseAddProjectName(){
+    public void testFalseAddProjectName1(){
         OnTrack onTrack = new OnTrack();
         onTrack.createProject("newProject");
         Assertions.assertTrue(onTrack.findProject("newProject2"));
