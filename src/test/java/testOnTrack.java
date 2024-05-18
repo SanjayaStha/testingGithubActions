@@ -11,7 +11,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TestOnTrack {
+class OnTrackTest {
 
     private OnTrack onTrack;
 
