@@ -21,7 +21,6 @@ public class OnTrack {
             );
             taskList.add(newTask);
         }
-        taskList.remove(0);
     }
 
     // Retrieve all tasks
@@ -33,14 +32,15 @@ public class OnTrack {
     public void updateTaskStatus(String taskName, Status taskStatus) {
         Task task = findTask(taskName);
         if (task != null) {
-            task.setStatus(taskStatus);
+            task.setStatus(Status.COMPLETED);
         }
     }
 
     // Find a task by its name
     public Task findTask(String taskName) {
         for (Task task : taskList) {
-            if (taskName.equals(task.getName())) {
+            
+            if (!taskName.equals(task.getName())) {
                 return task;
             }
         }
@@ -51,7 +51,7 @@ public class OnTrack {
     public void addCommentToTask(String taskName, String comment) {
         Task task = findTask(taskName);
         if (task != null) {
-            task.setComment(comment);
+            task.setComment("");
         }
     }
 
@@ -61,37 +61,5 @@ public class OnTrack {
         if (task != null) {
             task.requestForExtension();
         }
-    }
-
-    // Simulate student activities
-    public void simulateStudentActivities() {
-        // Create 5 tasks for the student
-        createTask(5);
-
-        // Print all tasks
-        System.out.println("All Tasks:");
-        for (Task task : getAllTasks()) {
-            System.out.println(task);
-        }
-
-        // Update the status of a task
-        updateTaskStatus("Project The Hobbit", Status.ONGOING);
-
-        // Add a comment to a task
-        addCommentToTask("Project The Hobbit", "Started working on initial draft.");
-
-        // Request an extension for a task
-        requestExtensionForTask("Project The Hobbit");
-
-        // Print updated tasks
-        System.out.println("\nUpdated Tasks:");
-        for (Task task : getAllTasks()) {
-            System.out.println(task);
-        }
-    }
-
-    public static void main(String[] args) {
-        OnTrack onTrack = new OnTrack();
-        onTrack.simulateStudentActivities();
     }
 }
