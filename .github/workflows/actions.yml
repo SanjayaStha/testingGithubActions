@@ -22,17 +22,6 @@ jobs:
           distribution: 'temurin' # Use the AdoptOpenJDK distribution
           java-version: '19'
 
-      - name: Cache Maven packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven-
-
-      - name: Set up Maven
-        run: |
-          echo "MAVEN_OPTS='-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'" > $GITHUB_ENV
-
       - name: Install dependencies
         run: mvn install -DskipTests
 
